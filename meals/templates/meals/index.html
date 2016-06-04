@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<style>
+ul#menu {
+    padding: 0;
+}
+
+ul#menu li a {
+    background-color: white;
+    color: black;
+    padding: 1px 1px;
+    text-decoration: none;
+    border-radius: 1px 1px 1px 1px;
+}
+
+ul#menu li a:hover {
+    background-color: orange;
+}
+</style>
+  
+  </head>
+{% if chicken_meal_list %}
+    <ul id="menu">
+    <h4>Chicken</h4>
+	{% for meal in chicken_meal_list %}
+        <li><a href="{% url 'meals:detail' meal.id %}">{{ meal.meal_name }}</a></li>
+    {% endfor %}
+	<h4>Beef</h4>
+	{% for meal in beef_meal_list %}
+        <li><a href="{% url 'meals:detail' meal.id %}">{{ meal.meal_name }}</a></li>
+    {% endfor %}
+	<h4>Other</h4>
+	{% for meal in other_meal_list %}
+        <li><a href="{% url 'meals:detail' meal.id %}">{{ meal.meal_name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No meals are available.</p>
+{% endif %}
+
+<button type="button"
+<button onclick="refreshButton()">Reload meals</button>
+
+<script>
+function refreshButton() {
+    location.reload();
+}
+</script>
+</html>
