@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+</head>
+<h1>{{ meal.meal_name }}</h1>
+<ul>
+{% for meal in meal.choice_set.all %}
+    <li>{{ history.history_type }}</li>
+{% endfor %}
+</ul>
+</html>
